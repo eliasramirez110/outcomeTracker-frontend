@@ -4,18 +4,17 @@ const InputJobs = () => {
 
   const [description , setDescription] = useState("")
 
-  const onsubmitForm = async() => {
-    Event.preventDefault();
+  const onsubmitForm = async(event) => {
+    event.preventDefault();
     try {
       const body = {description};
-      const respone = await fetch("http://localhost:5000/jobslist", {
+      const respone = await fetch(`${process.env.REACT_APP_BACKEND_URL}/jobs`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
       });
 
       // console.log(respone)
-      window.location = "/";
     } catch (err) {
       console.error(err.message)
     }
