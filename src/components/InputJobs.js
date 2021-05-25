@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-const InputJobs = () => {
+const InputJobs = (props) => {
 
   const [description , setDescription] = useState("")
 
@@ -13,7 +13,7 @@ const InputJobs = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
       });
-
+      props.setShouldReloadJobs(true)
       // console.log(respone)
     } catch (err) {
       console.error(err.message)

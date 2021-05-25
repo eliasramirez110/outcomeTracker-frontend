@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import './App.css';
+import EditJob from './components/EditJob';
 
 //components
 import InputJobs from "./components/InputJobs"
@@ -9,8 +10,9 @@ function App() {
   return (
    <Fragment>
      <div className="container">
-      <InputJobs />
+     
       <ListJobs />
+      <EditJob />
      </div>
      
    </Fragment>
