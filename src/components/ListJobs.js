@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import EditJob from "./EditJob"
+// import EditJob from "./EditJob"
 import axios from 'axios'
 import InputJobs from "./InputJobs"
+import EditJob from "./EditJob";
 
 const ListJobs = () => {
 
@@ -17,6 +18,15 @@ const ListJobs = () => {
       setShouldReloadJobs(true)
     } catch (error) {
       console.log(error.message)
+    }
+  }
+
+  //edit jobs function
+  const editJob = async (id) => {
+    try {
+      
+    } catch (error) {
+      
     }
   }
 
@@ -57,6 +67,8 @@ const getJobs = async () => {
           <th>Description</th>
           <th>Company Name</th>
           <th>Salary</th>
+          <th>Submit Date</th>
+          <th>Contact Information</th>
         </tr>
       </thead>
       <tbody>
@@ -66,7 +78,9 @@ const getJobs = async () => {
             <td>{job.jobdescription}</td>
             <td>{job.companyname}</td>
             <td>{job.salary}</td>
-            <td>Edit</td>
+            <td>{job.submitDate}</td>
+            <td>{job.contactInfo}</td>
+            <td><button className="btn btn-info"onClick={()=>{EditJob(job.id)}}>Edit</button></td>
             <td><button className="btn btn-danger"onClick={()=>{
               deleteJob(job.id)
 
