@@ -14,6 +14,8 @@ import './App.css';
 //components
 import InputJobs from "./components/InputJobs"
 import ListJobs from "./components/ListJobs"
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 
 function App() {
@@ -39,11 +41,39 @@ function App() {
    <Fragment>
      
      <div className="container">
+     <NavBar className="m-5" user={ user } setUser={setUser}/>
        <button className="btn rounded float-right"onClick={themeToggler}>Switch Theme</button>
       
-      <ListJobs />
+      <Route path="/jobs" render={()=> {
+        if(user.id){
+          return <ListJobs />
+        } else {
+          return <Redirect to="/login"/>
+        }
+        
+      }}/>
+
+      <Route path="/login" render={()=> {
+        if(!user.id){
+          return <Login setUser={setUser} />
+        } else {
+          return <Redirect to="/jobs" />
+        }
+        
+      }}/>
+
+      <Route path="/signup" render={()=> {
+        if(!user.id){
+          return  <Signup setUser={setUser}/> 
+        } else {
+          return <Redirect to="/jobs" />
+        }
+        
+      }}/>
+      
+      
       <EditJob />
-      <NavBar />
+      
        
      </div>
     

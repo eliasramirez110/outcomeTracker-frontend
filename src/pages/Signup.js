@@ -9,7 +9,7 @@ const Signup = (props) => {
 
   const submitForm = (e) => {
     e.preventDefault()
-    axios.post(`${env.REACT_APP_BACKEND_URL}/users`, { email, password })
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/users`, { email, password })
     .then((response) => {
       localStorage.setItem('userId', response.data.user.id)
       props.setUser(response.data.user)

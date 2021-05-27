@@ -23,7 +23,7 @@ const InputJobs = (props) => {
       };
       const respone = await fetch(`${process.env.REACT_APP_BACKEND_URL}/jobs`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Authorization:localStorage.getItem('userId') },
         body: JSON.stringify(body)
       });
       props.setShouldReloadJobs(true)
