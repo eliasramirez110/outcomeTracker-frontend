@@ -24,9 +24,12 @@ const ListJobs = () => {
   //edit jobs function
   const editJob = async (id) => {
     try {
-      
+      const editJob = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/jobs/${id}`, {
+        method: "PUT"
+      });
+      setShouldReloadJobs(true)
     } catch (error) {
-      
+      console.log(error.message)
     }
   }
 
@@ -55,7 +58,7 @@ const getJobs = async () => {
     getJobs()
   }, [])
 
-  console.log(jobs)
+  // console.log(jobs[0]&& (new Date(jobs[0].submitDate)).toLocaleDateString('en-US'))
   return (
     <div>
     <InputJobs setShouldReloadJobs={ setShouldReloadJobs }/>
@@ -78,7 +81,7 @@ const getJobs = async () => {
             <td>{job.jobdescription}</td>
             <td>{job.companyname}</td>
             <td>{job.salary}</td>
-            <td>{job.submitDate}</td>
+            <td>{(new Date(job.submitDate)).toLocaleDateString('en-US')}</td>
             <td>{job.contactInfo}</td>
             <td><button className="btn btn-info"onClick={()=>{EditJob(job.id)}}>Edit</button></td>
             <td><button className="btn btn-danger"onClick={()=>{
