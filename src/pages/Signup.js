@@ -19,8 +19,10 @@ const Signup = (props) => {
   
   return (
     <div>
+      <h1>Outcomes Tracker SignUp</h1>
       <form onSubmit={submitForm}>
-        <div>
+      
+        <div className="mt-5">
           <label htmlFor="email">Email:</label>
           <input value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
@@ -33,6 +35,7 @@ const Signup = (props) => {
         <div>
           <input type="submit" value="Sign Up!" />
         </div>
+        
       </form>
     </div>
   )

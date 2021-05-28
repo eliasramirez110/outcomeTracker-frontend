@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const NavBar = (props) => {
   return (
-    <nav>
+    <nav className="m-2">
      
 
       {props.user.id ?

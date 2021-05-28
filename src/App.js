@@ -40,6 +40,7 @@ function App() {
         <GlobalStyles/>
    <Fragment>
      
+     
      <div className="container">
      <NavBar className="m-5" user={ user } setUser={setUser}/>
        <button className="btn rounded float-right"onClick={themeToggler}>Switch Theme</button>
@@ -72,7 +73,7 @@ function App() {
       }}/>
       
       
-      <EditJob />
+      
       
        
      </div>

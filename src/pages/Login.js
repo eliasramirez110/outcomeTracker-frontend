@@ -17,8 +17,10 @@ const Login = (props) => {
   }
   
   return (
-    <div>
-      <form onSubmit={submitForm}>
+    <div> 
+      <h1>Outcomes Tracker LogIn</h1>
+      <form onSubmit={submitForm} className="m-5">
+        <div className="mx-auto">
         <div>
           <label htmlFor="email">Email:</label>
           <input value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -26,11 +28,12 @@ const Login = (props) => {
           
         <div>
           <label htmlFor="password">Password:</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <input className="" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
 
         <div>
           <input type="submit" value="Log In!" />
+        </div>
         </div>
       </form>
     </div>
