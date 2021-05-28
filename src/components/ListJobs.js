@@ -43,7 +43,7 @@ const getJobs = async () => {
     const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/jobs`, {
       headers: {Authorization: localStorage.getItem('userId')}
     })
-    
+    console.log(response)
     setJobs(response.data.jobs)
     setShouldReloadJobs(false)
   } catch (err) {
