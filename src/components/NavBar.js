@@ -7,18 +7,18 @@ const NavBar = (props) => {
 
       {props.user.id ?
         
-          <span 
+          <h4 
           onClick={() => {
             localStorage.removeItem('userId')
             props.setUser({})
           }}
-          >Logout</span>
+          >Logout</h4>
       :
-        <span>
+        <h4>
           <Link to="/signup">SignUp</Link>
           {' | '}
           <Link to="/login">LogIn</Link>
-        </span>
+        </h4>
       }
     </nav>
   )
